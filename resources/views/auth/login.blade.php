@@ -4,7 +4,7 @@
 <!-- HOME -->
 <!-- {{asset('assets/js/jquery.min.js')}} -->
 <!-- 'images/hero_1.jpg' -->
-<section class="section-hero overlay inner-page bg-image" style="margin-top: -25px;" id="home-section">
+<section class="section-hero overlay inner-page bg-image" style="margin-top: -25px;background-image: url({{asset('assets/images/hero_1.jpg')}});" id="home-section">
     <div class="container">
         <div class="row">
             <div class="col-md-7">
@@ -67,11 +67,11 @@
 
                         </div>
                     </div>
-                    @if (Route::has('password.request'))
+                    <!-- @if (Route::has('password.request'))
                     <a href="{{ route('password.request') }}">
                         {{ __('Forgot Your Password?') }}
                     </a>
-                    @endif
+                    @endif -->
                 </form>
             </div>
         </div>

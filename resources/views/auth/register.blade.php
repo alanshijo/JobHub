@@ -15,7 +15,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 mb-5">
-                <form method="POST" action="{{ route('register') }}">
+                <form method="POST" action="{{ route('register') }}" class="p-4 border rounded">
                     @csrf
                     <div class="row form-group">
                         <div class="col-md-12 mb-3 mb-md-0">
@@ -63,7 +63,7 @@
                     <div class="row form-group">
                         <div class="col-md-12">
                             <button type="submit" class="btn px-4 btn-primary text-white">
-                               Sign up
+                                Sign up
                             </button>
                         </div>
                     </div>
