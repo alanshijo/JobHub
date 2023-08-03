@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 02, 2023 at 10:30 AM
+-- Generation Time: Aug 03, 2023 at 11:08 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -131,16 +131,18 @@ CREATE TABLE `tbl_jobs` (
   `responsibilities` varchar(255) NOT NULL,
   `education_experience` varchar(255) NOT NULL,
   `other_benefits` varchar(255) NOT NULL,
-  `company_logo` varchar(255) NOT NULL
+  `company_logo` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `tbl_jobs`
 --
 
-INSERT INTO `tbl_jobs` (`id`, `job_title`, `job_region`, `company_name`, `job_type`, `vacancy`, `expericence`, `salary`, `gender`, `application_deadline`, `job_description`, `responsibilities`, `education_experience`, `other_benefits`, `company_logo`) VALUES
-(1, 'Web Developer', 'New York', 'ABC Company', 'Full-time	', '3', '2+ years', '$50,000-$60,000	', 'Any', '2023-08-15	', 'We are looking for a skilled web developer...	', '- Developing and maintaining websites...	', 'Bachelor\'s degree in Computer Science...	', 'Flexible work hours, Health insurance, Paid vacation	', 'job_logo_2.jpg'),
-(2, 'Marketing Manager	', 'San Francisco	', 'PQR Tech	', 'Part-time	', '2	', '1+ years	', '$40,000-$50,000	', 'Any	', '2023-08-10	', 'We are hiring a Data Analyst...	', '- Analyzing and interpreting data...	', 'Bachelor\'s degree in Statistics or related field...	', 'Professional development opportunities, Flexible work hours	', 'job_logo_5.jpg');
+INSERT INTO `tbl_jobs` (`id`, `job_title`, `job_region`, `company_name`, `job_type`, `vacancy`, `expericence`, `salary`, `gender`, `application_deadline`, `job_description`, `responsibilities`, `education_experience`, `other_benefits`, `company_logo`, `created_at`, `updated_at`) VALUES
+(1, 'Web Developer', 'New York', 'ABC Company', 'Full-time	', '3', '2+ years', '$50,000-$60,000	', 'Any', '2023-08-15	', 'We are looking for a skilled web developer...	', '- Developing and maintaining websites...	', 'Bachelor\'s degree in Computer Science...	', 'Flexible work hours, Health insurance, Paid vacation	', 'job_logo_2.jpg', '2023-08-03 09:43:44', '2023-08-03 09:43:44'),
+(2, 'Marketing Manager	', 'San Francisco	', 'PQR Tech	', 'Part-time	', '2	', '1+ years	', '$40,000-$50,000	', 'Any	', '2023-08-10	', 'We are hiring a Data Analyst...	', '- Analyzing and interpreting data...	', 'Bachelor\'s degree in Statistics or related field...	', 'Professional development opportunities, Flexible work hours	', 'job_logo_5.jpg', '2023-08-03 09:43:44', '2023-08-03 09:43:44');
 
 -- --------------------------------------------------------
 
