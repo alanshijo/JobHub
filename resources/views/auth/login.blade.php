@@ -2,7 +2,6 @@
 
 @section('content')
 <!-- HOME -->
-<!-- {{asset('assets/js/jquery.min.js')}} -->
 <!-- 'images/hero_1.jpg' -->
 <section class="section-hero overlay inner-page bg-image" style="margin-top: -25px;background-image: url({{asset('assets/images/hero_1.jpg')}});" id="home-section">
     <div class="container">
