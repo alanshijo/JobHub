@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 03, 2023 at 11:08 AM
+-- Generation Time: Aug 03, 2023 at 03:38 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -113,6 +113,28 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_categories`
+--
+
+CREATE TABLE `tbl_categories` (
+  `cat_id` int NOT NULL,
+  `category_name` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `tbl_categories`
+--
+
+INSERT INTO `tbl_categories` (`cat_id`, `category_name`, `created_at`, `updated_at`) VALUES
+(1, 'Programming', '2023-08-03 15:04:43', '2023-08-03 15:04:43'),
+(2, 'Designing', '2023-08-03 15:04:53', '2023-08-03 15:04:53'),
+(3, 'Marketing', '2023-08-03 15:05:00', '2023-08-03 15:05:00');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_jobs`
 --
 
@@ -132,6 +154,7 @@ CREATE TABLE `tbl_jobs` (
   `education_experience` varchar(255) NOT NULL,
   `other_benefits` varchar(255) NOT NULL,
   `company_logo` varchar(255) NOT NULL,
+  `cat_id` int NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -140,9 +163,11 @@ CREATE TABLE `tbl_jobs` (
 -- Dumping data for table `tbl_jobs`
 --
 
-INSERT INTO `tbl_jobs` (`id`, `job_title`, `job_region`, `company_name`, `job_type`, `vacancy`, `expericence`, `salary`, `gender`, `application_deadline`, `job_description`, `responsibilities`, `education_experience`, `other_benefits`, `company_logo`, `created_at`, `updated_at`) VALUES
-(1, 'Web Developer', 'New York', 'ABC Company', 'Full-time	', '3', '2+ years', '$50,000-$60,000	', 'Any', '2023-08-15	', 'We are looking for a skilled web developer...	', '- Developing and maintaining websites...	', 'Bachelor\'s degree in Computer Science...	', 'Flexible work hours, Health insurance, Paid vacation	', 'job_logo_2.jpg', '2023-08-03 09:43:44', '2023-08-03 09:43:44'),
-(2, 'Marketing Manager	', 'San Francisco	', 'PQR Tech	', 'Part-time	', '2	', '1+ years	', '$40,000-$50,000	', 'Any	', '2023-08-10	', 'We are hiring a Data Analyst...	', '- Analyzing and interpreting data...	', 'Bachelor\'s degree in Statistics or related field...	', 'Professional development opportunities, Flexible work hours	', 'job_logo_5.jpg', '2023-08-03 09:43:44', '2023-08-03 09:43:44');
+INSERT INTO `tbl_jobs` (`id`, `job_title`, `job_region`, `company_name`, `job_type`, `vacancy`, `expericence`, `salary`, `gender`, `application_deadline`, `job_description`, `responsibilities`, `education_experience`, `other_benefits`, `company_logo`, `cat_id`, `created_at`, `updated_at`) VALUES
+(1, 'Web Developer', 'New York', 'ABC Company', 'Full-time	', '3', '2+ years', '$50,000-$60,000	', 'Any', '2023-08-15	', 'We are looking for a skilled web developer...	', 'Developing and maintaining websites...	', 'Bachelor\'s degree in Computer Science...	', 'Flexible work hours, Health insurance, Paid vacation	', 'job_logo_2.jpg', 1, '2023-08-03 09:43:44', '2023-08-03 09:43:44'),
+(2, 'Marketing Manager	', 'San Francisco	', 'PQR Tech	', 'Part-time	', '2	', '1+ years	', '$40,000-$50,000	', 'Any	', '2023-08-10	', 'We are hiring a Data Analyst...	', 'Analyzing and interpreting data...	', 'Bachelor\'s degree in Statistics or related field...	', 'Professional development opportunities, Flexible work hours	', 'job_logo_5.jpg', 3, '2023-08-03 09:43:44', '2023-08-03 09:43:44'),
+(3, 'PHP Developer	', 'London', 'Acme Corp	', 'Full-time	', '1', '5+ years	', '$90,000-$100,000	', 'Any', '2023-08-20	', 'Acme Corp is seeking an experienced PHP Developer...	', 'Develop and maintain web applications...', 'Bachelor\'s degree in Computer Engineering or related field	', 'Retirement savings plan, Gym membership	', 'job_logo_3.jpg', 1, '2023-08-03 15:33:32', '2023-08-03 15:33:32'),
+(4, 'Frontend Developer	', 'San Francisco	', 'XYZ Solutions	', 'Part-time', '2', '3+ years	', '$80,000-$90,000	', 'Any', '2023-09-15	', 'XYZ Solutions is hiring a talented Frontend...	', 'Collaborate with UI/UX designers...', 'Bachelor\'s degree in Web Development or related field	', 'Remote work, Paid time off	', 'job_logo_4.jpg', 1, '2023-08-03 15:35:49', '2023-08-03 15:35:49');
 
 -- --------------------------------------------------------
 
@@ -207,6 +232,12 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
+-- Indexes for table `tbl_categories`
+--
+ALTER TABLE `tbl_categories`
+  ADD PRIMARY KEY (`cat_id`);
+
+--
 -- Indexes for table `tbl_jobs`
 --
 ALTER TABLE `tbl_jobs`
@@ -242,10 +273,16 @@ ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `tbl_categories`
+--
+ALTER TABLE `tbl_categories`
+  MODIFY `cat_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `tbl_jobs`
 --
 ALTER TABLE `tbl_jobs`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
