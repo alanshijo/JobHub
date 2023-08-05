@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 03, 2023 at 03:38 PM
+-- Generation Time: Aug 05, 2023 at 07:48 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -172,6 +172,27 @@ INSERT INTO `tbl_jobs` (`id`, `job_title`, `job_region`, `company_name`, `job_ty
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_savedjobs`
+--
+
+CREATE TABLE `tbl_savedjobs` (
+  `saved_id` int NOT NULL,
+  `job_id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `tbl_savedjobs`
+--
+
+INSERT INTO `tbl_savedjobs` (`saved_id`, `job_id`, `user_id`, `created_at`, `updated_at`) VALUES
+(7, 4, 2, '2023-08-05 02:11:35', '2023-08-05 02:11:35');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -244,6 +265,12 @@ ALTER TABLE `tbl_jobs`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tbl_savedjobs`
+--
+ALTER TABLE `tbl_savedjobs`
+  ADD PRIMARY KEY (`saved_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -283,6 +310,12 @@ ALTER TABLE `tbl_categories`
 --
 ALTER TABLE `tbl_jobs`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `tbl_savedjobs`
+--
+ALTER TABLE `tbl_savedjobs`
+  MODIFY `saved_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`

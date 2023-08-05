@@ -33,7 +33,7 @@
             text-decoration: none;
         }
 
-        .btn {
+        .btn-primary {
             background: rgb(137, 186, 22);
             border-color: #ffff;
         }
