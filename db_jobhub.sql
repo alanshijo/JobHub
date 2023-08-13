@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 13, 2023 at 03:04 PM
+-- Generation Time: Aug 13, 2023 at 06:44 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -152,7 +152,7 @@ CREATE TABLE `tbl_jobapplications` (
 --
 
 INSERT INTO `tbl_jobapplications` (`application_id`, `cv_file`, `user_id`, `job_id`, `created_at`, `updated_at`) VALUES
-(3, 'ALAN SHIJO - Resume', 2, 4, '2023-08-13 04:12:07', '2023-08-13 04:12:07');
+(4, 'ALAN SHIJO - Resume.pdf', 2, 3, '2023-08-13 13:11:08', '2023-08-13 13:11:08');
 
 -- --------------------------------------------------------
 
@@ -344,7 +344,7 @@ ALTER TABLE `tbl_categories`
 -- AUTO_INCREMENT for table `tbl_jobapplications`
 --
 ALTER TABLE `tbl_jobapplications`
-  MODIFY `application_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `application_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_jobs`

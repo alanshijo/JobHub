@@ -30,4 +30,6 @@ Route::post('/jobs/apply', [App\Http\Controllers\Jobs\JobController::class, 'app
 Route::get('/categories/single/{id}', [App\Http\Controllers\Categories\CategoryController::class, 'single'])->name('categories.single');
 
 Route::get('/user/profile', [App\Http\Controllers\Users\ProfileController::class, 'viewProfile'])->name('profile');
+
+Route::get('/user/applications', [App\Http\Controllers\Users\ProfileController::class, 'jobApplication'])->name('view.application');
     
