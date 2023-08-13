@@ -15,17 +15,17 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- my css files -->
-    <link rel="stylesheet" href="{{asset('assets/css/custom-bs.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/jquery.fancybox.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/bootstrap-select.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/fonts/icomoon/style.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/fonts/line-icons/style.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/owl.carousel.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/animate.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/quill.snow.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/custom-bs.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/jquery.fancybox.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-select.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/fonts/icomoon/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/fonts/line-icons/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/quill.snow.css') }}">
 
     <!-- MAIN CSS -->
-    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <style>
@@ -59,99 +59,49 @@
 
                     <nav class="mx-auto site-navigation d-flex justify-content-center">
                         <ul class="site-menu js-clone-nav d-none d-xl-block ml-0 pl-0">
-                            <li><a href="{{ url('/') }}" class="nav-link active">Home</a></li>
+                            <li><a href="{{ route('home') }}" class="nav-link active">Home</a></li>
                             <li><a href="about.html">About</a></li>
 
 
                             <li><a href="contact.html">Contact</a></li>
                             @guest
 
-                            @if (Route::has('login'))
-                            <li class=""><a href="{{ route('login') }}">Login</a></li>
-                            @endif
+                                @if (Route::has('login'))
+                                    <li class=""><a href="{{ route('login') }}">Login</a></li>
+                                @endif
 
-                            @if (Route::has('register'))
-                            <li class=""><a href="{{ route('register') }}">Register</a></li>
-                            @endif
-
+                                @if (Route::has('register'))
+                                    <li class=""><a href="{{ route('register') }}">Register</a></li>
+                                @endif
                             @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        {{ Auth::user()->name }}
                                     </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{ route('profile') }}">
+                                            My Profile
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                            class="d-none">
+                                            @csrf
+                                        </form>
+                                    </div>
+                                </li>
                             @endguest
                         </ul>
                     </nav>
                 </div>
             </div>
         </header>
-
-
-        <!-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
-        <!-- Left Side Of Navbar -->
-        <!-- <ul class="navbar-nav me-auto">
-
-                    </ul> -->
-
-        <!-- Right Side Of Navbar -->
-        <!-- <ul class="navbar-nav ms-auto"> -->
-        <!-- Authentication Links -->
-        <!-- @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav> -->
 
         <main class="py-4">
             @yield('content')
@@ -208,10 +158,15 @@
                     <div class="col-12">
                         <p class="copyright"><small>
                                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                Copyright &copy;<script>
+                                Copyright &copy;
+                                <script>
                                     document.write(new Date().getFullYear());
-                                </script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>. Downloaded from <a href="https://themeslab.org/" target="_blank">Themeslab</a>
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></small></p>
+                                </script> All rights reserved | This template is made with <i
+                                    class="icon-heart text-danger" aria-hidden="true"></i> by <a
+                                    href="https://colorlib.com" target="_blank">Colorlib</a>. Downloaded from <a
+                                    href="https://themeslab.org/" target="_blank">Themeslab</a>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </small></p>
                     </div>
                 </div>
             </div>
@@ -219,23 +174,22 @@
     </div>
 
     <!-- MY FILES SCRIPTS -->
-    <script src="{{asset('assets/js/jquery.min.js')}}">
-    </script>
-    <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{asset('assets/js/isotope.pkgd.min.js')}}"></script>
-    <script src="{{asset('assets/js/stickyfill.min.js')}}"></script>
-    <script src="{{asset('assets/js/jquery.fancybox.min.js')}}"></script>
-    <script src="{{asset('assets/js/jquery.easing.1.3.js')}}"></script>
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/js/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ asset('assets/js/stickyfill.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.fancybox.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.easing.1.3.js') }}"></script>
 
-    <script src="{{asset('assets/js/jquery.waypoints.min.js')}}"></script>
-    <script src="{{asset('assets/js/jquery.animateNumber.min.js')}}"></script>
-    <script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
-    <script src="{{asset('assets/js/quill.min.js')}}"></script>
+    <script src="{{ asset('assets/js/jquery.waypoints.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.animateNumber.min.js') }}"></script>
+    <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('assets/js/quill.min.js') }}"></script>
 
 
-    <script src="{{asset('assets/js/bootstrap-select.min.js')}}"></script>
+    <script src="{{ asset('assets/js/bootstrap-select.min.js') }}"></script>
 
-    <script src=" {{asset('assets/js/custom.js')}}"></script>
+    <script src=" {{ asset('assets/js/custom.js') }}"></script>
 
 </body>
 
