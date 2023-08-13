@@ -32,4 +32,5 @@ Route::get('/categories/single/{id}', [App\Http\Controllers\Categories\CategoryC
 Route::get('/user/profile', [App\Http\Controllers\Users\ProfileController::class, 'viewProfile'])->name('profile');
 
 Route::get('/user/applications', [App\Http\Controllers\Users\ProfileController::class, 'jobApplication'])->name('view.application');
-    
+
+Route::get('/user/savedJobs', [App\Http\Controllers\Users\ProfileController::class, 'savedJobs'])->name('view.saved');

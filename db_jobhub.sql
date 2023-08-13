@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 13, 2023 at 06:44 PM
+-- Generation Time: Aug 13, 2023 at 06:53 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -210,7 +210,8 @@ CREATE TABLE `tbl_savedjobs` (
 --
 
 INSERT INTO `tbl_savedjobs` (`saved_id`, `job_id`, `user_id`, `created_at`, `updated_at`) VALUES
-(7, 4, 2, '2023-08-05 02:11:35', '2023-08-05 02:11:35');
+(9, 1, 2, '2023-08-13 13:22:22', '2023-08-13 13:22:22'),
+(10, 4, 2, '2023-08-13 13:22:54', '2023-08-13 13:22:54');
 
 -- --------------------------------------------------------
 
@@ -241,7 +242,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `profile_img`, `name`, `email`, `email_verified_at`, `password`, `cv_file`, `job_title`, `bio`, `fb`, `twitter`, `linkedin`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'default.jpg', 'admin', 'admin@gmail.com', NULL, '$2y$10$mQrnQCqKRSW/X6YoBXCZI.c8gcU5cW61nvVlq8CPa8aPKHooYLcJ.', NULL, NULL, NULL, NULL, NULL, NULL, '25sY1wrPJtqNSZ1jDK2FymvlBaa3UsdnSOudEzjjaOPmhwaIheWetCtoipVz', '2023-07-31 13:01:54', '2023-07-31 13:01:54'),
+(1, 'default.jpg', 'admin', 'admin@gmail.com', NULL, '$2y$10$mQrnQCqKRSW/X6YoBXCZI.c8gcU5cW61nvVlq8CPa8aPKHooYLcJ.', NULL, NULL, NULL, NULL, NULL, NULL, 'iX7Gj1WxTE3p0mofpsBIziYqqkkfZaSbHL0FaZKMkCK9vOmJl947mG63lzBT', '2023-07-31 13:01:54', '2023-07-31 13:01:54'),
 (2, 'default.jpg', 'Alan Shijo', 'alanshijo06@gmail.com', NULL, '$2y$10$4V1gwXfRkipDuBsOKLavYumE88N5CLvbbvhz3JNJ3FmKPLASF2WoK', 'ALAN SHIJO - Resume.pdf', 'UI/UX Designer', 'I am a passionate UI/UX Designer with a creative and detail-oriented approach to crafting user-centered digital experiences. With a keen eye for aesthetics and a solid foundation in design principles, I strive to bring clarity and elegance to every project I work on. I enjoy blending my artistic skills with a user-focused mindset to create intuitive interfaces that seamlessly guide users through their digital journey. I am constantly inspired by the ever-evolving world of design and technology, and I am dedicated to delivering impactful solutions that resonate with users and elevate brands.', 'shijoatkl', 'AlanShijo2', 'a1an-shijo', NULL, '2023-08-02 00:52:52', '2023-08-02 00:52:52');
 
 --
@@ -356,7 +357,7 @@ ALTER TABLE `tbl_jobs`
 -- AUTO_INCREMENT for table `tbl_savedjobs`
 --
 ALTER TABLE `tbl_savedjobs`
-  MODIFY `saved_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `saved_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `users`

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Job\JobApplication;
 use App\Models\Job\Job;
+use App\Models\Job\SaveJob;
 use Auth;
 
 class ProfileController extends Controller
@@ -25,5 +26,15 @@ class ProfileController extends Controller
         $matchingJobs = Job::whereIn('id', $jobIds)->get();
 
         return view('users.applications', compact('matchingJobs'));
+    }
+    public function savedJobs()
+    {
+        $jobs = SaveJob::where('user_id', Auth::user()->id)->get();
+
+        $jobIds = $jobs->pluck('job_id');
+
+        $matchingJobs = Job::whereIn('id', $jobIds)->get();
+
+        return view('users.savedJobs', compact('matchingJobs'));
     }
 }
