@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 13, 2023 at 10:53 AM
+-- Generation Time: Aug 13, 2023 at 03:04 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -220,11 +220,17 @@ INSERT INTO `tbl_savedjobs` (`saved_id`, `job_id`, `user_id`, `created_at`, `upd
 
 CREATE TABLE `users` (
   `id` bigint UNSIGNED NOT NULL,
+  `profile_img` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'default.jpg',
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `cv_file` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `job_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `bio` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `fb` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `twitter` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `linkedin` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -234,9 +240,9 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `cv_file`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin@gmail.com', NULL, '$2y$10$mQrnQCqKRSW/X6YoBXCZI.c8gcU5cW61nvVlq8CPa8aPKHooYLcJ.', NULL, '3jcxzFFL2TEP3h4pmlBrn9n5663XuYBqhDgbsy0mmMZTsdVwnylcMu2P0chT', '2023-07-31 13:01:54', '2023-07-31 13:01:54'),
-(2, 'Alan Shijo', 'alanshijo06@gmail.com', NULL, '$2y$10$4V1gwXfRkipDuBsOKLavYumE88N5CLvbbvhz3JNJ3FmKPLASF2WoK', 'ALAN SHIJO - Resume', NULL, '2023-08-02 00:52:52', '2023-08-02 00:52:52');
+INSERT INTO `users` (`id`, `profile_img`, `name`, `email`, `email_verified_at`, `password`, `cv_file`, `job_title`, `bio`, `fb`, `twitter`, `linkedin`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'default.jpg', 'admin', 'admin@gmail.com', NULL, '$2y$10$mQrnQCqKRSW/X6YoBXCZI.c8gcU5cW61nvVlq8CPa8aPKHooYLcJ.', NULL, NULL, NULL, NULL, NULL, NULL, '25sY1wrPJtqNSZ1jDK2FymvlBaa3UsdnSOudEzjjaOPmhwaIheWetCtoipVz', '2023-07-31 13:01:54', '2023-07-31 13:01:54'),
+(2, 'default.jpg', 'Alan Shijo', 'alanshijo06@gmail.com', NULL, '$2y$10$4V1gwXfRkipDuBsOKLavYumE88N5CLvbbvhz3JNJ3FmKPLASF2WoK', 'ALAN SHIJO - Resume.pdf', 'UI/UX Designer', 'I am a passionate UI/UX Designer with a creative and detail-oriented approach to crafting user-centered digital experiences. With a keen eye for aesthetics and a solid foundation in design principles, I strive to bring clarity and elegance to every project I work on. I enjoy blending my artistic skills with a user-focused mindset to create intuitive interfaces that seamlessly guide users through their digital journey. I am constantly inspired by the ever-evolving world of design and technology, and I am dedicated to delivering impactful solutions that resonate with users and elevate brands.', 'shijoatkl', 'AlanShijo2', 'a1an-shijo', NULL, '2023-08-02 00:52:52', '2023-08-02 00:52:52');
 
 --
 -- Indexes for dumped tables
