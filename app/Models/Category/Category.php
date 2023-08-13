@@ -11,12 +11,9 @@ class Category extends Model
 
     protected $table = 'tbl_categories';
 
-    protected $fillable = [
-        'cat_id ',
-        'category_name',
-        'created_at',
-        'updated_at',
-    ];
+    protected $primaryKey = 'cat_id';
+
+    protected $fillable = ['cat_id ', 'category_name', 'created_at', 'updated_at'];
 
     public $timestamps = true;
 }

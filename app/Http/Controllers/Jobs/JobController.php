@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Job\Job;
 use App\Models\Job\SaveJob;
 use App\Models\Job\JobApplication;
+use App\Models\Category\Category;
 use Auth;
 
 class JobController extends Controller
@@ -33,7 +34,9 @@ class JobController extends Controller
             ->where('user_id', Auth::user()->id)
             ->count();
 
-        return view('jobs.single', compact('job', 'relatedJobs', 'relatedJobsCount', 'savedCount', 'appliedCount'));
+        $categories = Category::all();
+
+        return view('jobs.single', compact('job', 'relatedJobs', 'relatedJobsCount', 'savedCount', 'appliedCount', 'categories'));
     }
 
     public function saveJob(Request $request)

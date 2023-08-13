@@ -26,3 +26,5 @@ Route::get('/jobs/single/{id}', [App\Http\Controllers\Jobs\JobController::class,
 Route::post('/jobs/save', [App\Http\Controllers\Jobs\JobController::class, 'saveJob'])->name('save.job');
 
 Route::post('/jobs/apply', [App\Http\Controllers\Jobs\JobController::class, 'applyJob'])->name('apply.job');
+
+Route::get('/categories/single/{id}', [App\Http\Controllers\Categories\CategoryController::class, 'single'])->name('categories.single');

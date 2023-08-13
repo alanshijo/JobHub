@@ -28,7 +28,7 @@
                 </div>
             @endif
 
-            
+
             @if (\Session::has('no_cv'))
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
                     {!! \Session::get('no_cv') !!}
@@ -36,7 +36,7 @@
                 </div>
             @endif
 
-            
+
             @if (\Session::has('applied'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     {!! \Session::get('applied') !!}
@@ -106,14 +106,14 @@
                                                 class="icon-heart-o mr-2"></i>Save Job</button>
                                     @endif
                                 </form>
-                                <!--add text-danger to it to make it read-->
                             </div>
                             <div class="col-6">
-                                <form action="{{route('apply.job')}}" method="post">
+                                <form action="{{ route('apply.job') }}" method="post">
                                     @csrf
                                     <input type="hidden" name="job_id" id="job_id" value="{{ $job->id }}">
                                     @if ($appliedCount > 0)
-                                        <button class="btn btn-block btn-primary btn-md disabled">Application submitted</button>
+                                        <button class="btn btn-block btn-primary btn-md disabled">Application
+                                            submitted</button>
                                     @else
                                         <button class="btn btn-block btn-primary btn-md">Apply Now</button>
                                     @endif
@@ -131,9 +131,11 @@
                                 <li class="mb-2"><strong class="text-black">Vacancy:</strong> {{ $job->vacancy }}</li>
                                 <li class="mb-2"><strong class="text-black">Employment
                                         Status:</strong>{{ $job->job_type }}</li>
-                                <li class="mb-2"><strong class="text-black">Experience:</strong> {{ $job->expericence }}
+                                <li class="mb-2"><strong class="text-black">Experience:</strong>
+                                    {{ $job->expericence }}
                                 </li>
-                                <li class="mb-2"><strong class="text-black">Job Location:</strong> {{ $job->job_region }}
+                                <li class="mb-2"><strong class="text-black">Job Location:</strong>
+                                    {{ $job->job_region }}
                                 </li>
                                 <li class="mb-2"><strong class="text-black">Salary:</strong>{{ $job->salary }}</li>
                                 <li class="mb-2"><strong class="text-black">Gender:</strong> {{ $job->gender }}</li>
@@ -152,6 +154,17 @@
                                 <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ route('single.job', $job->id) }}"
                                     target="_blank" class="pt-3 pb-3 pr-3 pl-0"><span class="icon-linkedin"></span></a>
                             </div>
+                        </div>
+
+
+                        <div class="bg-light mt-4 p-3 border rounded mb-4">
+                            <h3 class="text-primary  mt-3 h5 pl-3 mb-3 ">Categories</h3>
+                            <ul class="list-unstyled pl-3 mb-0">
+                                @foreach($categories as $category)
+                                <li class="mb-2"><a href="{{route('categories.single', $category->cat_id)}}" class="text-secondary">{{ $category->category_name }}</a>
+                                </li>
+                                @endforeach
+                            </ul>
                         </div>
 
                     </div>
