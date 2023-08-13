@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 05, 2023 at 07:48 AM
+-- Generation Time: Aug 13, 2023 at 09:43 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -135,6 +135,28 @@ INSERT INTO `tbl_categories` (`cat_id`, `category_name`, `created_at`, `updated_
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_jobapplications`
+--
+
+CREATE TABLE `tbl_jobapplications` (
+  `application_id` int NOT NULL,
+  `cv_file` varchar(255) NOT NULL,
+  `user_id` int NOT NULL,
+  `job_id` int NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `tbl_jobapplications`
+--
+
+INSERT INTO `tbl_jobapplications` (`application_id`, `cv_file`, `user_id`, `job_id`, `created_at`, `updated_at`) VALUES
+(3, 'ALAN SHIJO - Resume', 2, 4, '2023-08-13 04:12:07', '2023-08-13 04:12:07');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_jobs`
 --
 
@@ -202,6 +224,7 @@ CREATE TABLE `users` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cv_file` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -211,9 +234,9 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin@gmail.com', NULL, '$2y$10$mQrnQCqKRSW/X6YoBXCZI.c8gcU5cW61nvVlq8CPa8aPKHooYLcJ.', '3jcxzFFL2TEP3h4pmlBrn9n5663XuYBqhDgbsy0mmMZTsdVwnylcMu2P0chT', '2023-07-31 13:01:54', '2023-07-31 13:01:54'),
-(2, 'Alan Shijo', 'alanshijo06@gmail.com', NULL, '$2y$10$4V1gwXfRkipDuBsOKLavYumE88N5CLvbbvhz3JNJ3FmKPLASF2WoK', NULL, '2023-08-02 00:52:52', '2023-08-02 00:52:52');
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `cv_file`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'admin', 'admin@gmail.com', NULL, '$2y$10$mQrnQCqKRSW/X6YoBXCZI.c8gcU5cW61nvVlq8CPa8aPKHooYLcJ.', NULL, '3jcxzFFL2TEP3h4pmlBrn9n5663XuYBqhDgbsy0mmMZTsdVwnylcMu2P0chT', '2023-07-31 13:01:54', '2023-07-31 13:01:54'),
+(2, 'Alan Shijo', 'alanshijo06@gmail.com', NULL, '$2y$10$4V1gwXfRkipDuBsOKLavYumE88N5CLvbbvhz3JNJ3FmKPLASF2WoK', 'ALAN SHIJO - Resume', NULL, '2023-08-02 00:52:52', '2023-08-02 00:52:52');
 
 --
 -- Indexes for dumped tables
@@ -257,6 +280,12 @@ ALTER TABLE `personal_access_tokens`
 --
 ALTER TABLE `tbl_categories`
   ADD PRIMARY KEY (`cat_id`);
+
+--
+-- Indexes for table `tbl_jobapplications`
+--
+ALTER TABLE `tbl_jobapplications`
+  ADD PRIMARY KEY (`application_id`);
 
 --
 -- Indexes for table `tbl_jobs`
@@ -304,6 +333,12 @@ ALTER TABLE `personal_access_tokens`
 --
 ALTER TABLE `tbl_categories`
   MODIFY `cat_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `tbl_jobapplications`
+--
+ALTER TABLE `tbl_jobapplications`
+  MODIFY `application_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_jobs`

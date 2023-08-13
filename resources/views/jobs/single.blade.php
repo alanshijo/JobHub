@@ -28,6 +28,22 @@
                 </div>
             @endif
 
+            
+            @if (\Session::has('no_cv'))
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    {!! \Session::get('no_cv') !!}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+
+            
+            @if (\Session::has('applied'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {!! \Session::get('applied') !!}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+
             <div class="row align-items-center mb-5">
                 <div class="col-lg-8 mb-4 mb-lg-0">
                     <div class="d-flex align-items-center">
@@ -93,7 +109,15 @@
                                 <!--add text-danger to it to make it read-->
                             </div>
                             <div class="col-6">
-                                <button class="btn btn-block btn-primary btn-md">Apply Now</button>
+                                <form action="{{route('apply.job')}}" method="post">
+                                    @csrf
+                                    <input type="hidden" name="job_id" id="job_id" value="{{ $job->id }}">
+                                    @if ($appliedCount > 0)
+                                        <button class="btn btn-block btn-primary btn-md disabled">Application submitted</button>
+                                    @else
+                                        <button class="btn btn-block btn-primary btn-md">Apply Now</button>
+                                    @endif
+                                </form>
                             </div>
                         </div>
 
