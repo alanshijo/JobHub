@@ -34,3 +34,7 @@ Route::get('/user/profile', [App\Http\Controllers\Users\ProfileController::class
 Route::get('/user/applications', [App\Http\Controllers\Users\ProfileController::class, 'jobApplication'])->name('view.application');
 
 Route::get('/user/savedJobs', [App\Http\Controllers\Users\ProfileController::class, 'savedJobs'])->name('view.saved');
+
+Route::get('/user/edit-profile', [App\Http\Controllers\Users\ProfileController::class, 'editProfile'])->name('edit.profile');
+
+Route::post('/user/update-profile', [App\Http\Controllers\Users\ProfileController::class, 'updateProfile'])->name('update.profile');

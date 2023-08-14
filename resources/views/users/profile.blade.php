@@ -6,20 +6,25 @@
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="col-md-7">
+                    @if (\Session::has('success'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {!! \Session::get('success') !!}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
                     <div class="card p-3 py-4">
-                        @if (Auth::user()->cv_file)
-                            <div class="float-right">
-                                <a href="{{ asset('assets/cvs/' . Auth::user()->cv_file . '') }}" target="_blank"
-                                    class="btn btn-success float-right">Download CV</a>
-                            </div>
-                        @endif
+                        <div class="edit-profile">
+                            <a class="btn btn-primary btn-sm float-right" href="{{ route('edit.profile') }}"
+                                role="button">Edit profile</a>
+                        </div>
+
                         <div class="text-center">
                             <img src="{{ asset('assets/images/profile/' . Auth::user()->profile_img . '') }}" width="100"
                                 class="rounded-circle">
                         </div>
 
+
                         <div class="text-center mt-3">
-                            {{-- <span class="bg-secondary p-1 px-4 rounded text-white">Pro</span> --}}
                             <h5 class="mt-2 mb-2 fw-bold">{{ Auth::user()->name }}</h5>
                             <span class="text-muted">{{ Auth::user()->job_title }}</span>
 
@@ -45,13 +50,14 @@
                                 @endif
                             </div>
 
+                            @if (Auth::user()->cv_file)
+                                <a href="{{ asset('assets/cvs/' . Auth::user()->cv_file . '') }}" target="_blank"
+                                    class="btn btn-outline-success btn-block my-2">Download CV</a>
+                            @endif
+
 
 
                         </div>
-
-
-
-
                     </div>
                 </div>
             </div>
