@@ -54,3 +54,5 @@ Route::prefix('user')
 
         Route::post('update-cv', [App\Http\Controllers\Users\ProfileController::class, 'updateCV'])->name('update.cv');
     });
+
+Route::post('/search-result', [App\Http\Controllers\HomeController::class, 'searchJobs'])->name('search.jobs');

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 15, 2023 at 10:13 AM
+-- Generation Time: Aug 15, 2023 at 02:23 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -188,7 +188,7 @@ CREATE TABLE `tbl_jobs` (
 INSERT INTO `tbl_jobs` (`id`, `job_title`, `job_region`, `company_name`, `job_type`, `vacancy`, `expericence`, `salary`, `gender`, `application_deadline`, `job_description`, `responsibilities`, `education_experience`, `other_benefits`, `company_logo`, `cat_id`, `created_at`, `updated_at`) VALUES
 (1, 'Web Developer', 'New York', 'ABC Company', 'Full-time	', '3', '2+ years', '$50,000-$60,000	', 'Any', '2023-08-15	', 'We are looking for a skilled web developer...	', 'Developing and maintaining websites...	', 'Bachelor\'s degree in Computer Science...	', 'Flexible work hours, Health insurance, Paid vacation	', 'job_logo_2.jpg', 1, '2023-08-03 09:43:44', '2023-08-03 09:43:44'),
 (2, 'Marketing Manager	', 'San Francisco	', 'PQR Tech	', 'Part-time	', '2	', '1+ years	', '$40,000-$50,000	', 'Any	', '2023-08-10	', 'We are hiring a Data Analyst...	', 'Analyzing and interpreting data...	', 'Bachelor\'s degree in Statistics or related field...	', 'Professional development opportunities, Flexible work hours	', 'job_logo_5.jpg', 3, '2023-08-03 09:43:44', '2023-08-03 09:43:44'),
-(3, 'PHP Developer	', 'London', 'Acme Corp	', 'Full-time	', '1', '5+ years	', '$90,000-$100,000	', 'Any', '2023-08-20	', 'Acme Corp is seeking an experienced PHP Developer...	', 'Develop and maintain web applications...', 'Bachelor\'s degree in Computer Engineering or related field	', 'Retirement savings plan, Gym membership	', 'job_logo_3.jpg', 1, '2023-08-03 15:33:32', '2023-08-03 15:33:32'),
+(3, 'PHP Developer	', 'Toronto', 'Acme Corp	', 'Full-time	', '1', '5+ years	', '$90,000-$100,000	', 'Any', '2023-08-20	', 'Acme Corp is seeking an experienced PHP Developer...	', 'Develop and maintain web applications...', 'Bachelor\'s degree in Computer Engineering or related field	', 'Retirement savings plan, Gym membership	', 'job_logo_3.jpg', 1, '2023-08-03 15:33:32', '2023-08-03 15:33:32'),
 (4, 'Frontend Developer	', 'San Francisco	', 'XYZ Solutions	', 'Part-time', '2', '3+ years	', '$80,000-$90,000	', 'Any', '2023-09-15	', 'XYZ Solutions is hiring a talented Frontend...	', 'Collaborate with UI/UX designers...', 'Bachelor\'s degree in Web Development or related field	', 'Remote work, Paid time off	', 'job_logo_4.jpg', 1, '2023-08-03 15:35:49', '2023-08-03 15:35:49');
 
 -- --------------------------------------------------------
@@ -211,7 +211,8 @@ CREATE TABLE `tbl_savedjobs` (
 
 INSERT INTO `tbl_savedjobs` (`saved_id`, `job_id`, `user_id`, `created_at`, `updated_at`) VALUES
 (9, 1, 2, '2023-08-13 13:22:22', '2023-08-13 13:22:22'),
-(10, 4, 2, '2023-08-13 13:22:54', '2023-08-13 13:22:54');
+(10, 4, 2, '2023-08-13 13:22:54', '2023-08-13 13:22:54'),
+(11, 3, 2, '2023-08-15 04:46:13', '2023-08-15 04:46:13');
 
 -- --------------------------------------------------------
 
@@ -357,7 +358,7 @@ ALTER TABLE `tbl_jobs`
 -- AUTO_INCREMENT for table `tbl_savedjobs`
 --
 ALTER TABLE `tbl_savedjobs`
-  MODIFY `saved_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `saved_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `users`

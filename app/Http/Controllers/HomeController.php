@@ -41,4 +41,20 @@ class HomeController extends Controller
     {
         return view('pages.contact');
     }
+
+    public function searchJobs(Request $request)
+    {
+        $job_title = $request->job_title;
+        $job_region = $request->job_region;
+        $job_type = $request->job_type;
+
+        $resultJobs = Job::where('job_title', 'like', "%$job_title%")
+            ->where('job_region', 'like', "%$job_region%")
+            ->where('job_type', 'like', "%$job_type%")
+            ->get();
+
+        if ($resultJobs) {
+            return view('jobs.search', compact('resultJobs'));
+        }
+    }
 }
