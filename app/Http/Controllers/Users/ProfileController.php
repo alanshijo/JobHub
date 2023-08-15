@@ -48,6 +48,15 @@ class ProfileController extends Controller
     {
         $user = User::find(Auth::user()->id);
 
+        $request->validate(
+            [
+                'full_name' => 'required|alpha_spaces',
+            ],
+            [
+                'full_name.alpha_spaces' => 'The field must contain only alphabetic characters.',
+            ],
+        );
+
         $user->update([
             'name' => $request->full_name,
             'job_title' => $request->job_title,
@@ -72,7 +81,7 @@ class ProfileController extends Controller
         $user = User::find(Auth::user()->id);
 
         $request->validate([
-            'cv_file' => 'file|mimes:pdf,docx',
+            'cv_file' => 'required|file|mimes:pdf,docx',
         ]);
 
         if ($request->hasFile('cv_file')) {

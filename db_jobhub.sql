@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 14, 2023 at 05:20 PM
+-- Generation Time: Aug 15, 2023 at 10:13 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -243,7 +243,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `profile_img`, `name`, `email`, `email_verified_at`, `password`, `cv_file`, `job_title`, `bio`, `fb`, `twitter`, `linkedin`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'default.jpg', 'admin', 'admin@gmail.com', NULL, '$2y$10$mQrnQCqKRSW/X6YoBXCZI.c8gcU5cW61nvVlq8CPa8aPKHooYLcJ.', NULL, NULL, NULL, NULL, NULL, NULL, 'iX7Gj1WxTE3p0mofpsBIziYqqkkfZaSbHL0FaZKMkCK9vOmJl947mG63lzBT', '2023-07-31 13:01:54', '2023-07-31 13:01:54'),
-(2, 'default.jpg', 'Alan Shijo', 'alanshijo06@gmail.com', NULL, '$2y$10$4V1gwXfRkipDuBsOKLavYumE88N5CLvbbvhz3JNJ3FmKPLASF2WoK', 'ALAN SHIJO - Resume.pdf', 'UI Designer', 'I am a passionate UI Designer with a creative and detail-oriented approach to crafting user-centered digital experiences. With a keen eye for aesthetics and a solid foundation in design principles, I strive to bring clarity and elegance to every project I work on. I enjoy blending my artistic skills with a user-focused mindset to create intuitive interfaces that seamlessly guide users through their digital journey. I am constantly inspired by the ever-evolving world of design and technology, and I am dedicated to delivering impactful solutions that resonate with users and elevate brands.', 'shijoalan', 'Alanshijo2', 'alanshijo', NULL, '2023-08-02 00:52:52', '2023-08-14 11:49:58');
+(2, 'default.jpg', 'Alan Shijo', 'alanshijo06@gmail.com', NULL, '$2y$10$4V1gwXfRkipDuBsOKLavYumE88N5CLvbbvhz3JNJ3FmKPLASF2WoK', '1692076802_ALAN SHIJO - Resume.pdf', 'UI Designer', 'I am a passionate UI Designer with a creative and detail-oriented approach to crafting user-centered digital experiences. With a keen eye for aesthetics and a solid foundation in design principles, I strive to bring clarity and elegance to every project I work on. I enjoy blending my artistic skills with a user-focused mindset to create intuitive interfaces that seamlessly guide users through their digital journey. I am constantly inspired by the ever-evolving world of design and technology, and I am dedicated to delivering impactful solutions that resonate with users and elevate brands.', 'shijoalan', 'Alanshijo2', 'alanshijo', NULL, '2023-08-02 00:52:52', '2023-08-15 04:24:47');
 
 --
 -- Indexes for dumped tables

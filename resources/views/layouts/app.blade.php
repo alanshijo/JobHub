@@ -40,7 +40,7 @@
     </style>
 </head>
 
-<body>
+<body id="top">
     <div id="app">
         <div class="site-mobile-menu site-navbar-target">
             <div class="site-mobile-menu-header">
@@ -60,10 +60,10 @@
                     <nav class="mx-auto site-navigation d-flex justify-content-center">
                         <ul class="site-menu js-clone-nav d-none d-xl-block ml-0 pl-0">
                             <li><a href="{{ route('home') }}" class="nav-link active">Home</a></li>
-                            <li><a href="about.html">About</a></li>
+                            <li><a href="{{ route('about') }}">About</a></li>
 
 
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="{{ route('contact') }}">Contact</a></li>
                             @guest
 
                                 @if (Route::has('login'))

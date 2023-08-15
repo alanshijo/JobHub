@@ -24,8 +24,21 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $jobs = Job::select()->take(5)->orderby('id', 'desc')->get();
+        $jobs = Job::select()
+            ->take(5)
+            ->orderby('id', 'desc')
+            ->get();
         $allJobs = Job::all()->count();
         return view('home', compact('jobs', 'allJobs'));
+    }
+
+    public function about()
+    {
+        return view('pages.about');
+    }
+
+    public function contact()
+    {
+        return view('pages.contact');
     }
 }

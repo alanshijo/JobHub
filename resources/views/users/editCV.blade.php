@@ -25,6 +25,9 @@
                     <input type="file" name="cv_file" class="form-control" id="cv_file"
                         value="{{ Auth::user()->cv_file }}" placeholder="CV">
                 </div>
+                @error('cv_file')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
                 <div class="col-lg-4 ml-auto">
                     <div class="row">
                         <div class="col-6">
@@ -36,6 +39,7 @@
 
 
             </form>
+            <span class="text-danger">*Only pdf and docx files are supported</span>
         </div>
     </section>
 @endsection

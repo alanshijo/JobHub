@@ -23,8 +23,10 @@
                     <label for="job-title">Name</label>
                     <input type="text" name="full_name" class="form-control" id="full_name"
                         value="{{ Auth::user()->name }}" placeholder="Full name">
+                    @error('full_name')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
                 </div>
-
 
                 <div class="form-group">
                     <label for="job-region">Job title</label>
