@@ -38,3 +38,7 @@ Route::get('/user/savedJobs', [App\Http\Controllers\Users\ProfileController::cla
 Route::get('/user/edit-profile', [App\Http\Controllers\Users\ProfileController::class, 'editProfile'])->name('edit.profile');
 
 Route::post('/user/update-profile', [App\Http\Controllers\Users\ProfileController::class, 'updateProfile'])->name('update.profile');
+
+Route::get('/user/edit-cv', [App\Http\Controllers\Users\ProfileController::class, 'editCV'])->name('edit.cv');
+
+Route::post('/user/update-cv', [App\Http\Controllers\Users\ProfileController::class, 'updateCV'])->name('update.cv');

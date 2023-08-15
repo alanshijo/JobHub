@@ -16,6 +16,9 @@
                         <div class="edit-profile">
                             <a class="btn btn-primary btn-sm float-right" href="{{ route('edit.profile') }}"
                                 role="button">Edit profile</a>
+
+                            <a class="btn btn-danger btn-sm float-right mr-2" href="{{ route('edit.cv') }}"
+                                role="button">Update CV</a>
                         </div>
 
                         <div class="text-center">

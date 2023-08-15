@@ -61,4 +61,30 @@ class ProfileController extends Controller
             return redirect('/user/profile')->with('success', 'Profile updated successfully.');
         }
     }
+
+    public function editCV()
+    {
+        return view('users.editCV');
+    }
+
+    public function updateCV(Request $request)
+    {
+        $user = User::find(Auth::user()->id);
+
+        $request->validate([
+            'cv_file' => 'file|mimes:pdf,docx',
+        ]);
+
+        if ($request->hasFile('cv_file')) {
+            $cvFile = $request->file('cv_file');
+            $fileName = time() . '_' . $cvFile->getClientOriginalName();
+            $destinationPath = public_path('assets/cvs');
+            $cvFile->move($destinationPath, $fileName);
+
+            $user->cv_file = $fileName;
+            $user->save();
+        }
+
+        return redirect('/user/profile')->with('success', 'CV updated successfully.');
+    }
 }
