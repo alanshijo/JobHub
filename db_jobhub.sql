@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 15, 2023 at 02:23 PM
+-- Generation Time: Aug 16, 2023 at 06:31 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -20,6 +20,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_jobhub`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admins`
+--
+
+CREATE TABLE `admins` (
+  `id` int NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`id`, `email`, `password`, `created_at`, `updated_at`) VALUES
+(1, 'admin@gmail.com', '$2y$10$mQrnQCqKRSW/X6YoBXCZI.c8gcU5cW61nvVlq8CPa8aPKHooYLcJ.', '2023-08-16 18:20:15', '2023-08-16 18:20:15');
 
 -- --------------------------------------------------------
 
@@ -243,12 +264,18 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `profile_img`, `name`, `email`, `email_verified_at`, `password`, `cv_file`, `job_title`, `bio`, `fb`, `twitter`, `linkedin`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'default.jpg', 'admin', 'admin@gmail.com', NULL, '$2y$10$mQrnQCqKRSW/X6YoBXCZI.c8gcU5cW61nvVlq8CPa8aPKHooYLcJ.', NULL, NULL, NULL, NULL, NULL, NULL, 'iX7Gj1WxTE3p0mofpsBIziYqqkkfZaSbHL0FaZKMkCK9vOmJl947mG63lzBT', '2023-07-31 13:01:54', '2023-07-31 13:01:54'),
+(1, 'default.jpg', 'admin', 'admin@gmail.com', NULL, '$2y$10$mQrnQCqKRSW/X6YoBXCZI.c8gcU5cW61nvVlq8CPa8aPKHooYLcJ.', NULL, NULL, NULL, NULL, NULL, NULL, 'Qc9YsGvDkGUuIXzbjJMjIVcOe6xAxUYaAEimJlKtU7sMxs9YMfTESjQ6A8uW', '2023-07-31 13:01:54', '2023-07-31 13:01:54'),
 (2, 'default.jpg', 'Alan Shijo', 'alanshijo06@gmail.com', NULL, '$2y$10$4V1gwXfRkipDuBsOKLavYumE88N5CLvbbvhz3JNJ3FmKPLASF2WoK', '1692076802_ALAN SHIJO - Resume.pdf', 'UI Designer', 'I am a passionate UI Designer with a creative and detail-oriented approach to crafting user-centered digital experiences. With a keen eye for aesthetics and a solid foundation in design principles, I strive to bring clarity and elegance to every project I work on. I enjoy blending my artistic skills with a user-focused mindset to create intuitive interfaces that seamlessly guide users through their digital journey. I am constantly inspired by the ever-evolving world of design and technology, and I am dedicated to delivering impactful solutions that resonate with users and elevate brands.', 'shijoalan', 'Alanshijo2', 'alanshijo', NULL, '2023-08-02 00:52:52', '2023-08-15 04:24:47');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admins`
+--
+ALTER TABLE `admins`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `failed_jobs`
@@ -319,6 +346,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `admins`
+--
+ALTER TABLE `admins`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -346,7 +379,7 @@ ALTER TABLE `tbl_categories`
 -- AUTO_INCREMENT for table `tbl_jobapplications`
 --
 ALTER TABLE `tbl_jobapplications`
-  MODIFY `application_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `application_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_jobs`
@@ -358,7 +391,7 @@ ALTER TABLE `tbl_jobs`
 -- AUTO_INCREMENT for table `tbl_savedjobs`
 --
 ALTER TABLE `tbl_savedjobs`
-  MODIFY `saved_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `saved_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `users`

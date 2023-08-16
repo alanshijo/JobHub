@@ -60,3 +60,9 @@ Route::prefix('user')
 Route::post('/search-result', [App\Http\Controllers\HomeController::class, 'searchJobs'])->name('search.jobs');
 
 Route::get('jobs/single/{id}', [App\Http\Controllers\Jobs\JobController::class, 'single'])->name('single.job');
+
+Route::get('/admin/login', [App\Http\Controllers\Admins\AdminController::class, 'viewLogin'])->name('view.login');
+
+Route::post('/admin/login-check', [App\Http\Controllers\Admins\AdminController::class, 'checkLogin'])->name('check.login');
+
+Route::get('/admin', [App\Http\Controllers\Admins\AdminController::class, 'index'])->name('admin.dashboard');
