@@ -15,6 +15,10 @@ use App\Http\Controllers\Jobs\JobController;
 
 Auth::routes();
 
+Route::fallback(function () {
+    return redirect()->route('login');
+});
+
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -26,8 +30,6 @@ Route::get('/contact', [App\Http\Controllers\HomeController::class, 'contact'])-
 Route::prefix('jobs')
     ->middleware('auth')
     ->group(function () {
-        Route::get('single/{id}', [App\Http\Controllers\Jobs\JobController::class, 'single'])->name('single.job');
-
         Route::post('save', [App\Http\Controllers\Jobs\JobController::class, 'saveJob'])->name('save.job');
 
         Route::post('apply', [App\Http\Controllers\Jobs\JobController::class, 'applyJob'])->name('apply.job');
@@ -56,3 +58,5 @@ Route::prefix('user')
     });
 
 Route::post('/search-result', [App\Http\Controllers\HomeController::class, 'searchJobs'])->name('search.jobs');
+
+Route::get('jobs/single/{id}', [App\Http\Controllers\Jobs\JobController::class, 'single'])->name('single.job');
